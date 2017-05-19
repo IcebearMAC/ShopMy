@@ -31,7 +31,7 @@ namespace ShopMy
                 switch (nav)
                 {
                     case '1':
-                        boolExit = true;
+                        
                         ListStock();
                         break;
 
@@ -69,9 +69,10 @@ namespace ShopMy
             {
                 Console.Clear();
                 Console.WriteLine("Please navigate through the menue by inputting the number \n(1, 2, 3, 0) of your choice"
-                + "\n1. View the shops stock in sorted Lists"
-                + "\n2. Search for produkts in shop"
-                + "\n3. Remove Contact"
+                + "\n1. Sort stock by name"
+                + "\n2. Sort stock by price"
+                + "\n3. Sort stoch by price and name"
+                + "\n4. Sort stock by price grouped on category"
                 + "\n0. Exit the application\n");
 
                 string input = Console.ReadLine();//Console read from keybrd input
@@ -81,7 +82,7 @@ namespace ShopMy
                 switch (nav)
                 {
                     case '1':
-                        boolExit = true;
+                        
                         Logic.SortingByName();
 
                         break;
@@ -90,11 +91,14 @@ namespace ShopMy
 
                         Logic.SortingByPrice();
 
-
                         break;
 
                     case '3':
+                        Logic.SortingByPriceAndName();
+                        break;
 
+                    case '4':
+                        Logic.SortingByPriceAndGroupedByCategory();
                         break;
 
                     case '0':

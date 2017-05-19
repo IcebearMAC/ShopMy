@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopMy
 {
-    class ShopStorage//:ItemStorage<Item>
+    class ShopStorage //: ItemStorage<Item>
     {
     }
 }

@@ -114,28 +114,14 @@ namespace ShopMy
             #endregion
         }
 
-        //GetAllItems()
-
-        /*public IEnumerable<Item> GetAllNames()
-        {
-            var query = from Item in storage
-                        where Item.Name
-                        select Item;
-
-            return query;
-        }*/
-
-
         public IEnumerable<Item> SortByPrice()
         {
             var query = from item in storage
-                        orderby item.Price descending
+                        orderby item.Price 
                         select item;
 
             return query;
         }
-
-
 
         public IEnumerable<Item> SortByName()
         {
@@ -147,21 +133,30 @@ namespace ShopMy
 
         }
 
-        /*public IEnumerable<ShopMy.ShortSortByPriceAndName> SortByPriceAndName()
+        public IEnumerable<Item> SortByPriceAndName()
         {
-            var query = from Storage in Storage
-                        orderby Storage.Price
-                        select new ShopMy.ShortSortByPriceAndName { price = Storage.Price, name = Storage.Name };
+            var query = from Item in storage
+                        orderby Item.Price, Item.Name ascending
+                        select Item;
+                        /*select new ShortSortByPriceAndName { Price = Item.Price, Name = Item.Name};*/
+
+            return query;   
+            
         }
 
-        public IEnumerable<ShopMy.ShortSortByPriceAndCategory> SortByPriceAndGroupedByCategory()
+        public IEnumerable<Item> SortByPriceAndGroupedByCategory()
         {
-            var query = from Storage in Storage
-                        orderby Storage.Price
-                        group Storage.Price by Storage.Category;
+            //var query = (from Item in storage
+            //            orderby Item.Price
+            //            group storage by Item.Category
+            //            into s
+            //            select s).ToList();
 
-          
-        }*/
+
+            return storage.OrderBy(i => i.Price).GroupBy(i => i.Category).SelectMany(i => i);
+
+            //return query;
+        }
 
 
     }

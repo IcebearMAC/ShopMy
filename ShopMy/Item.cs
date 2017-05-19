@@ -26,13 +26,14 @@ namespace ShopMy
 
     class ShortSortByPriceAndName
     {
-        public double Price { get; set; }
+        public int Price { get; set; }
         public string Name { get; set; }
     }
 
     class ShortSortByPriceAndCategory
     {
-        public double Price { get; set; }
+        public int Price { get; set; }
+        public Category Category { get; set; }
     }
 
 
